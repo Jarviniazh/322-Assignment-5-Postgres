@@ -34,7 +34,7 @@ app.post('/lego/addSet', async(req, res) => {
     await legoData.addSet(req.body);
     res.redirect('/lego/sets');
   }catch(err){
-    res.render("404", { message: `I'm sorry, but we have encountered the following error: ${err}` });
+    res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` });
   } 
 });
 
@@ -54,7 +54,7 @@ app.post('/lego/editSet', async(req, res) => {
     await legoData.editSet(req.body.set_num, req.body);
     res.redirect('/lego/sets');
   }catch(err){
-    res.render("404", { message: `I'm sorry, but we have encountered the following error: ${err}` });
+    res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` });
   } 
 });
 
@@ -63,7 +63,7 @@ app.get('/lego/deleteSet/:num', async(req, res) => {
     await legoData.deleteSet(req.params.num);
     res.redirect('/lego/sets');
   }catch(err){
-    res.render("404", { message: `I'm sorry, but we have encountered the following error: ${err}` });
+    res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` });
   }
 });
 
