@@ -5,6 +5,7 @@ require('dotenv').config();
 // let sets = [];
 
 const Sequelize = require('sequelize');
+const pg = require('pg');
 
 // set up sequelize to point to our postgres database
 // const sequelize = new Sequelize('database', 'user', 'password', {
