@@ -5,11 +5,12 @@ const express = require('express');
 const app = express();
 //const path = require("path");
 
-
-
 const HTTP_PORT = process.env.PORT || 8080;
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(__dirname + '/public')); //Vercel
+app.set('views', __dirname + '/views');//Vercel
+
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
@@ -21,8 +22,6 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render("about");
 });
-
-
 
 
 app.get('/lego/addSet', async(req, res) => {
