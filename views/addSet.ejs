@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body tabindex="-1">
+
+    <%- include('partials/navbar', {page: '/lego/addSet' }) %>
+
+  <div class="container mx-auto p-4">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">Add Set</h1>
+
+          <p class="py-6">Fill the form to add a new set to Lego Collection:</p>
+     </div>
+      </div>
+    </div>
+
+    <br />
+
+    <form method="post" action="/lego/addSet">
+        <label class="input input-bordered flex items-center gap-2">
+            Name:
+            <input type="text" class="grow" placeholder="Gears" required/>
+        </label>
+        <br />
+        <label class="input input-bordered flex items-center gap-2">
+            Year:
+            <input type="number" class="grow" placeholder="2024" required/>
+        </label>
+        <br />
+        <label class="input input-bordered flex items-center gap-2">
+            Number of Parts:
+            <input type="number" class="grow" placeholder="100" required/>
+        </label>
+        <br />
+        <label class="input input-bordered flex items-center gap-2">
+            Image Links (URL):  
+            <input type="url" class="grow" placeholder="https://cdn.rebrickable.com/media/sets/001-1.jpg" required/>
+        </label>
+        <br />
+        <select class="select select-primary w-full max-w-xs" name="theme_id" required>
+            <option disabled selected>What is it's Theme?</option>
+            <% themes.forEach(theme=>{ %>
+                <option value="<%= theme.id %>">
+                <%= theme.name %>
+                </option>
+            <% }) %>
+        </select>
+        <br />
+        <br />
+        
+        <label class="input input-bordered flex items-center gap-2">
+            Set Number:
+            <input type="text" class="grow" placeholder="001-1" required/>
+        </label>
+        <br />
+        <button type="submit" class="btn btn-outline btn-success">Submit</button>
+    </form>
+
+   
+
+</body>
+
+</html>
